@@ -18,15 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startDownload(v);
-            }
-        });
+
     }
 
     public void mockFileDownloader(){
+
+        runOnUiThread(new Runnable(){
+                @Override
+                public void run(){
+                    button.setText("DOWNLOADING...");
+
+                }
+        });
+
         for (int downloadProgress = 0; downloadProgress <= 100; downloadProgress = downloadProgress + 10) {
             Log.d(TAG, "Download Progress: " + downloadProgress + "%");
             try {
@@ -35,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                button.setText("Start");
+            }
+        });
     }
 
     class ExampleRunnable implements Runnable{
