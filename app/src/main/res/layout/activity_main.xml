@@ -14,7 +14,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="startDownload"/>
 
     <Button
         android:id="@+id/button2"
@@ -23,7 +24,8 @@
         android:layout_marginTop="36dp"
         android:text="Stop"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:onClick="stopDownload"/>
 
     <Switch
         android:id="@+id/switch2"
